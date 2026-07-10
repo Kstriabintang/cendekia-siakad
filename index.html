@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b8378'/%3E%3Cpath d='M16 6 L27 11 L16 16 L5 11 Z' fill='white'/%3E%3Cpath d='M9 14 L9 20 Q16 24 23 20 L23 14' fill='none' stroke='white' stroke-width='1.7'/%3E%3Ccircle cx='27' cy='11' r='1.6' fill='%23d99a2b'/%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Cendekia SIAKAD — Sistem Informasi Akademik kampus modern." />
+    <meta name="theme-color" content="#f4f8f8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#090f0e" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Cendekia SIAKAD" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Cendekia · SIAKAD</title>
+    <script>
+      // Set theme before paint to avoid flash. Default DARK on first visit;
+      // respect the user's saved choice afterwards.
+      (function () {
+        try {
+          const t = localStorage.getItem('siakad-theme');
+          const dark = t ? t === 'dark' : true;
+          document.documentElement.classList.toggle('dark', dark);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

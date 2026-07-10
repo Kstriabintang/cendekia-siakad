@@ -1,0 +1,247 @@
+@import 'tailwindcss';
+
+/* Toggle dark mode via .dark class on <html> (set pre-paint in index.html) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens — Cendekia SIAKAD
+   Sibling of the Cendekia LMS suite, but its own identity:
+   Brand = "pine" teal (records, trust, institutional calm) instead of the
+   LMS iris-indigo. Shared accent = scholarly gold (the thread across the suite).
+   Neutrals are cool slate with a faint teal bias — chosen, not default grey.
+--------------------------------------------------------------------------- */
+:root {
+  /* neutrals (light) — soft teal-slate tint so it never reads as flat white.
+     Cards stay pure white to "pop" against the tinted surface. */
+  --surface:      #dce8e8;
+  --surface-2:    #cfdfdf;
+  --card:         #ffffff;
+  --card-2:       #edf5f4;
+  --border:       #d2e0df;
+  --border-strong:#bfd1cf;
+  --ink:          #16211f;
+  --muted:        #4b5a57;
+  --faint:        #788784;
+
+  /* brand — pine teal */
+  --brand-50:  #e8faf6;
+  --brand-100: #c9f2ea;
+  --brand-200: #97e6d8;
+  --brand-300: #5cd3c0;
+  --brand-400: #27b7a3;
+  --brand-500: #0f9c8b;
+  --brand-600: #0b8378;
+  --brand-700: #0a6b63;
+  --brand-800: #0c554f;
+  --brand-900: #0e4742;
+
+  /* accent — scholarly gold (shared across the Cendekia suite) */
+  --gold:      #d99a2b;
+  --gold-soft: #f8edd3;
+
+  /* semantic */
+  --success:    #12a150;
+  --success-soft:#dcf3e5;
+  --warning:    #d97706;
+  --warning-soft:#fbeccd;
+  --danger:     #dc2f42;
+  --danger-soft:#fbe1e4;
+  --info:       #2f6bec;
+  --info-soft:  #dbe6fd;
+
+  --ring: color-mix(in oklab, var(--brand-600) 45%, transparent);
+  --shadow-color: 178 22% 30%;
+}
+
+.dark {
+  --surface:      #090f0e;
+  --surface-2:    #0e1615;
+  --card:         #121b19;
+  --card-2:       #17211f;
+  --border:       #24302e;
+  --border-strong:#32423f;
+  --ink:          #e7efec;
+  --muted:        #9cb0ab;
+  --faint:        #6a7d79;
+
+  --brand-50:  #0a2b28;
+  --brand-100: #0f3a35;
+  --brand-200: #16514a;
+  --brand-300: #1c7a6e;
+  --brand-400: #2ca596;
+  --brand-500: #38c2b0;
+  --brand-600: #46d0bc;
+  --brand-700: #6cdbc9;
+  --brand-800: #97e8db;
+  --brand-900: #c4f2ea;
+
+  --gold:      #ecb54e;
+  --gold-soft: #33280d;
+
+  --success:    #34d17f;
+  --success-soft:#123020;
+  --warning:    #e8a33d;
+  --warning-soft:#33260c;
+  --danger:     #f16a7a;
+  --danger-soft:#331419;
+  --info:       #6f9bf5;
+  --info-soft:  #14203a;
+
+  --shadow-color: 178 40% 3%;
+}
+
+/* Map semantic tokens onto Tailwind's color/utility system */
+@theme inline {
+  --font-sans:  'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --color-surface:   var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card:      var(--card);
+  --color-card-2:    var(--card-2);
+  --color-border:    var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink:       var(--ink);
+  --color-muted:     var(--muted);
+  --color-faint:     var(--faint);
+
+  --color-brand-50:  var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+
+  --color-gold:      var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-success:      var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning:      var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger:       var(--danger);
+  --color-danger-soft:  var(--danger-soft);
+  --color-info:      var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --radius-xl: 0.9rem;
+  --radius-2xl: 1.15rem;
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Never allow the page itself to scroll sideways on phones — wide tables
+       scroll inside their own overflow-x containers instead. */
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Prevent iOS Safari from auto-zooming when focusing form fields (<16px triggers zoom). */
+  @media (max-width: 640px) {
+    input, textarea, select, .input { font-size: 16px; }
+  }
+  h1, h2, h3, h4 { letter-spacing: -0.015em; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: color-mix(in oklab, var(--brand-500) 30%, transparent); }
+
+  * { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+  *::-webkit-scrollbar { width: 10px; height: 10px; }
+  *::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }
+  *::-webkit-scrollbar-thumb:hover { background: var(--faint); background-clip: content-box; }
+
+  :focus-visible { outline: 2px solid var(--brand-600); outline-offset: 2px; border-radius: 6px; }
+}
+
+@layer components {
+  .card {
+    background: linear-gradient(168deg, var(--card) 0%, var(--card-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 1px 2px -1px hsl(var(--shadow-color) / 0.10), 0 1px 3px hsl(var(--shadow-color) / 0.06);
+  }
+  .card-hover { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 24px -12px hsl(var(--shadow-color) / 0.28);
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    font-weight: 600; font-size: .875rem; line-height: 1;
+    padding: .625rem 1rem; border-radius: .7rem; cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease, box-shadow .15s ease;
+    white-space: nowrap; user-select: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--brand-600); color: #fff; box-shadow: 0 4px 14px -6px color-mix(in oklab, var(--brand-600) 70%, transparent); }
+  .dark .btn-primary { color: #071312; }
+  .btn-primary:hover { background: var(--brand-700); }
+  .dark .btn-primary:hover { background: var(--brand-500); }
+  .btn-ghost { background: transparent; color: var(--muted); }
+  .btn-ghost:hover { background: var(--surface-2); color: var(--ink); }
+  .btn-outline { background: var(--card); color: var(--ink); border: 1px solid var(--border-strong); }
+  .btn-outline:hover { background: var(--surface-2); border-color: var(--faint); }
+  .btn-danger { background: var(--danger); color: #fff; }
+  .btn-danger:hover { filter: brightness(1.05); }
+
+  .input {
+    width: 100%; background: var(--card); color: var(--ink);
+    border: 1px solid var(--border-strong); border-radius: .7rem;
+    padding: .625rem .85rem; font-size: .9rem; transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .input::placeholder { color: var(--faint); }
+  .input:focus { outline: none; border-color: var(--brand-500); box-shadow: 0 0 0 3px var(--ring); }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: .3rem;
+    font-size: .72rem; font-weight: 600; letter-spacing: .01em;
+    padding: .22rem .55rem; border-radius: 999px; white-space: nowrap;
+  }
+
+  .label-eyebrow {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); font-weight: 600;
+  }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* Data table used across academic records */
+  .rtable { width: 100%; border-collapse: separate; border-spacing: 0; }
+  .rtable th { text-align: left; font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); font-weight: 600; padding: .6rem .75rem; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .rtable td { padding: .7rem .75rem; border-bottom: 1px solid var(--border); font-size: .875rem; }
+  .rtable tbody tr:last-child td { border-bottom: none; }
+  .rtable tbody tr { transition: background .12s ease; }
+  .rtable tbody tr:hover { background: var(--surface-2); }
+}
+
+/* iOS safe-area (notch / home indicator) helpers */
+.safe-top    { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.safe-x      { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+.h-header-safe { height: calc(4rem + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); }
+
+/* Page transition */
+.fade-enter-active, .fade-leave-active { transition: opacity .18s ease, transform .18s ease; }
+.fade-enter-from { opacity: 0; transform: translateY(6px); }
+.fade-leave-to { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body, .card { background: #fff !important; box-shadow: none !important; }
+  .print-area { box-shadow: none !important; border: none !important; }
+}
