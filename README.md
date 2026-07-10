@@ -137,6 +137,6 @@ Dirilis di bawah lisensi **MIT** — lihat berkas [LICENSE](LICENSE).
 
 <div align="center">
 
-Dibuat dengan ❤️ oleh **Ksatria Bintang Samudra**
+Dikembangkan oleh **Ksatria Bintang Samudra** · © 2026
 
 </div>
