@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { sound } from '@/lib/sound.js'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const deferred = ref(null)      // beforeinstallprompt event (Android/desktop Chrome/Edge)
 const canInstall = ref(false)   // native prompt available

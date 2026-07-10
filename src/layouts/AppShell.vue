@@ -11,7 +11,7 @@ import AuroraBackground from '@/components/AuroraBackground.vue'
 import Toasts from '@/components/Toasts.vue'
 import CommandPalette from '@/components/CommandPalette.vue'
 import PwaInstall from '@/components/PwaInstall.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const auth = useAuth()
 const ui = useUI()
@@ -153,7 +153,7 @@ function logout() { sound.play('click'); auth.logout(); router.push('/login') }
 
     <!-- Main -->
     <div class="relative z-10 flex-1 min-w-0 flex flex-col">
-      <header class="sticky top-0 z-30 h-16 flex items-center gap-3 px-4 sm:px-6 border-b border-border bg-card/80 backdrop-blur-md safe-top safe-x">
+      <header class="sticky top-0 z-30 h-16 flex items-center gap-3 px-4 sm:px-6 border-b border-border bg-card/95 backdrop-blur-none sm:bg-card/80 sm:backdrop-blur-md safe-top safe-x">
         <button class="btn btn-ghost lg:hidden px-2" @click="mobileOpen = true"><icons.Menu :size="20" /></button>
         <h2 class="font-semibold text-[1.05rem] truncate">{{ pageTitle }}</h2>
 

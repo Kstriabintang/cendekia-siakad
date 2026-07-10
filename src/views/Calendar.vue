@@ -4,7 +4,7 @@ import PageHeader from '@/components/PageHeader.vue'
 import Chip from '@/components/Chip.vue'
 import { api } from '@/services/api.js'
 import { sound } from '@/lib/sound.js'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const loading = ref(true)
 const events = ref([])

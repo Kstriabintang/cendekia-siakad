@@ -6,7 +6,7 @@ import { toast } from '@/lib/toast.js'
 import { sound } from '@/lib/sound.js'
 import PageHeader from '@/components/PageHeader.vue'
 import Chip from '@/components/Chip.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const auth = useAuth()
 const krs = ref(null)

@@ -6,7 +6,7 @@ import { toast } from '@/lib/toast.js'
 import PageHeader from '@/components/PageHeader.vue'
 import Chip from '@/components/Chip.vue'
 import Avatar from '@/components/Avatar.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const auth = useAuth()
 const loading = ref(true)

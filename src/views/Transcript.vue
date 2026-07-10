@@ -3,7 +3,7 @@ import { ref, onMounted, computed } from 'vue'
 import { api } from '@/services/api.js'
 import { useAuth } from '@/stores/auth.js'
 import PageHeader from '@/components/PageHeader.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const auth = useAuth()
 const data = ref(null)

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import Sparkline from './Sparkline.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const props = defineProps({
   label: String,

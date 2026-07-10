@@ -1,6 +1,6 @@
 <script setup>
 import { toasts, dismiss } from '@/lib/toast.js'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const cfg = {
   success: { icon: 'CheckCircle2', color: 'var(--success)', bg: 'var(--success-soft)' },

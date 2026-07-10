@@ -35,7 +35,7 @@ const blobs = computed(() => props.dark
 </template>
 
 <style scoped>
-.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; contain: layout paint; }
 .aurora.is-dark { filter: saturate(1.15); }
 .blob {
   position: absolute; border-radius: 50%;
@@ -56,4 +56,11 @@ const blobs = computed(() => props.dark
 .a4 { animation-name: a4; } .a5 { animation-name: a5; }
 
 @media (prefers-reduced-motion: reduce) { .blob { animation: none !important; } }
+
+/* Mobile: freeze the blobs (no compositor churn during touch-scroll) and use a
+   lighter blur so they rasterize once, cheaply. Keeps the look, drops the cost. */
+@media (max-width: 640px) {
+  .blob { animation: none !important; will-change: auto; filter: blur(46px); }
+  .is-dark .blob { filter: blur(50px); }
+}
 </style>

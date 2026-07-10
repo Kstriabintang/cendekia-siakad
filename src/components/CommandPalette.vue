@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import { api } from '@/services/api.js'
 import { useAuth } from '@/stores/auth.js'
 import { sound } from '@/lib/sound.js'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const props = defineProps({ open: Boolean })
 const emit = defineEmits(['update:open'])

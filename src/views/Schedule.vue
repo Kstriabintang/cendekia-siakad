@@ -5,7 +5,7 @@ import { useAuth } from '@/stores/auth.js'
 import PageHeader from '@/components/PageHeader.vue'
 import StatCard from '@/components/StatCard.vue'
 import Chip from '@/components/Chip.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const auth = useAuth()
 const schedule = ref([])

@@ -159,8 +159,8 @@ function frame() {
   }
 
   for (const A of atomList) drawAtom(A)
-
-  if (!reduce) raf = requestAnimationFrame(frame)
+  // Static render: draw a single frame — no continuous rAF loop. This keeps the
+  // subtle atomic net as a light, one-time paint (huge win for scroll perf & battery).
 }
 
 function onMove(e) { mouse.x = e.clientX; mouse.y = e.clientY }
@@ -169,15 +169,13 @@ function onLeave() { mouse.x = -9999; mouse.y = -9999 }
 onMounted(() => {
   ctx = canvas.value.getContext('2d')
   build(); frame()
-  ro = new ResizeObserver(() => { build(); if (reduce) frame() })
+  // Redraw once on resize (debounced by rAF) — no persistent animation loop.
+  ro = new ResizeObserver(() => { build(); frame() })
   ro.observe(canvas.value.parentElement)
-  if (props.interactive && !reduce) { window.addEventListener('mousemove', onMove); window.addEventListener('mouseleave', onLeave) }
 })
-watch(() => [props.primary, props.accent], () => { if (reduce) frame() })
-onBeforeUnmount(() => {
-  cancelAnimationFrame(raf); ro?.disconnect()
-  window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseleave', onLeave)
-})
+// Repaint the static net when the theme (colors) changes.
+watch(() => [props.primary, props.accent], () => { frame() })
+onBeforeUnmount(() => { cancelAnimationFrame(raf); ro?.disconnect() })
 </script>
 
 <template>

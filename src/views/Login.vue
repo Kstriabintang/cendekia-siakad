@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import { useAuth } from '@/stores/auth.js'
 import { sound } from '@/lib/sound.js'
 import AuroraBackground from '@/components/AuroraBackground.vue'
-import * as icons from 'lucide-vue-next'
+import { icons } from '@/lib/icons'
 
 const router = useRouter()
 const auth = useAuth()
