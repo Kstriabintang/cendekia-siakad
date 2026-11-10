@@ -6,7 +6,7 @@
 
 ### Sistem Informasi Akademik Perguruan Tinggi — Modern, Responsif, Installable
 
-[![Live Demo](https://img.shields.io/badge/live%20demo-siakad.learningsystem.my.id-0b8378?style=for-the-badge&logo=cloudflare&logoColor=white)](https://siakad.learningsystem.my.id)
+[![Live Demo](https://img.shields.io/badge/live%20demo-siakad.ksatriabintangsamudra.com-0b8378?style=for-the-badge&logo=cloudflare&logoColor=white)](https://siakad.ksatriabintangsamudra.com)
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)
 ![Version](https://img.shields.io/badge/version-1.0.0-0b8378?style=flat-square)
@@ -26,7 +26,7 @@
 
 Dibangun dengan tiga peran pengguna (**Mahasiswa**, **Dosen/Dosen Wali**, **Admin/BAAK**), setiap alur mengikuti praktik SIAKAD nyata: pengisian KRS dengan validasi batas SKS berbasis IPS & cek prasyarat, persetujuan KRS oleh dosen wali, input komponen nilai dengan huruf mutu otomatis, hingga rekap kehadiran dan tagihan UKT.
 
-> 🌐 **Live:** [siakad.learningsystem.my.id](https://siakad.learningsystem.my.id)
+> 🌐 **Live:** [siakad.ksatriabintangsamudra.com](https://siakad.ksatriabintangsamudra.com)
 
 ---
 
